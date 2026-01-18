@@ -96,10 +96,10 @@ router.post(
       
       console.log(otp);
 
-      // const emailSent = await sendOTPEmail(normalizedEmail, otp);
-      // if (!emailSent) {
-      //   return res.status(500).json({ message: 'Failed to send OTP email' });
-      // }
+      const emailSent = await sendOTPEmail(normalizedEmail, otp);
+      if (!emailSent) {
+        return res.status(500).json({ message: 'Failed to send OTP email' });
+      }
 
       res.json({ message: 'OTP sent to your email' });
     } catch (error) {
